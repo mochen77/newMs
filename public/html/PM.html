@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动物园管理系统</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <style>
+        .table-responsive .table-striped th{
+            height:15px;
+            text-align:center;
+            line-height:15px;
+        }
+        .table-responsive .table-striped td{
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">动物园管理系统</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">用户名</a></li>
+              <li><a href="#">注销</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+              <li class="active"><a href="#">陆地馆 <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">海洋馆</a></li>
+              <li><a href="#">飞禽馆</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">风采</h1>
+  
+            <div class="row placeholders">
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="/img/animal1.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
+                <h4>gouge</h4>
+                <span class="text-muted">Something else</span>
+              </div>
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="/img/animal2.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+              </div>
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="/img/animal3.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+              </div>
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="/img/animal4.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+              </div>
+            </div>
+  
+            <h2 class="sub-header">动物信息
+                <button  data-toggle="modal" data-target="#addPosModal" class="btn btn-primary btn-add-pos navbar-right" style="margin-right:55px;">新添动物信息</button>
+            </h2>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>照片</th>
+                    <th>名称</th>
+                    <th>入园时间</th>
+                    <th>吃什么</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src="/img/zoo.jpg" style="width:40px;height:40px;"></td>
+                    <td>袋鼠</td>
+                    <td>20180808</td>
+                    <td>草</td>
+                    <td><a href="#">修改</a>&nbsp;<a href="#">删除</a></td>
+                  </tr>
+                  <tr>
+                    <td>1,002</td>
+                    <td>amet</td>
+                    <td>consectetur</td>
+                    <td>adipiscing</td>
+                    <td>elit</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+</body>
+</html>
