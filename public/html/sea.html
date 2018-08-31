@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动物园管理系统</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <style>
+        .table-responsive .table-striped th{
+            height:15px;
+            text-align:center;
+            line-height:15px;
+        }
+        .table-responsive .table-striped td{
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+        .table-responsive .table-striped td img{
+            width:40px;
+            height:40px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">动物园管理系统</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">用户名</a></li>
+              <li><a href="#">注销</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+              <li class="active"><a href="#">陆地馆 <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">海洋馆</a></li>
+              <li><a href="#">飞禽馆</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+              <li style="margin-top:500px;text-align:center;"><a href="">退出</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">海洋生物</h1>
+  
+            <div class="row placeholders">
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="/img/11.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
+                <h4>水母</h4>
+                <span class="text-muted">Something else</span>
+              </div>
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="/img/12.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
+                <h4>蓝鲸</h4>
+                <span class="text-muted">Something else</span>
+              </div>
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="/img/13.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
+                <h4>鱼</h4>
+                <span class="text-muted">Something else</span>
+              </div>
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="/img/14.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
+                <h4>海豚</h4>
+                <span class="text-muted">Something else</span>
+              </div>
+            </div>
+  
+            <h2 class="sub-header">动物信息
+                <button  data-toggle="modal" data-target="#addPost" class="btn btn-primary btn-add-pos navbar-right" style="margin-right:55px;">新添动物信息</button>
+            </h2>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>照片</th>
+                    <th>名称</th>
+                    <th>入园时间</th>
+                    <th>吃什么</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src="/img/11.jpg"></td>
+                    <td>袋鼠</td>
+                    <td>20180808</td>
+                    <td>草</td>
+                    <td><a href="#">修改</a>&nbsp;<a href="#">删除</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 新添动物信息模态框 -->
+      <div class="modal fade" id="addPost" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">添加动物信息</h4>
+            </div>
+            <div class="modal-body">
+              <form class="add-position-form">
+                <div class="form-group">
+                  <label for="addLogo">上传照片</label>
+                  <input type="file" class="form-control" name="photos" id="addPhotos">
+                </div>
+                <div class="form-group">
+                  <label for="addPositionName">名称</label>
+                  <input type="text" class="form-control" name="name" id="addName" placeholder="名称">
+                </div>
+                <div class="form-group">
+                  <label for="addSalary">入园时间</label>
+                  <input type="text" class="form-control" name="times" id="addTimes" placeholder="入园时间">
+                </div>
+                <div class="form-group">
+                  <label for="addCity">吃什么</label>
+                  <input type="text" class="form-control" name="eat" id="addEat" placeholder="吃什么">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-primary btns-add-pos">添加</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <script src="/lib/Jquery/jquery-1.12.4.min.js"></script>
+      <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/js/position.js"></script>
+</body>
+</html>
