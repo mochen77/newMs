@@ -1,19 +1,9 @@
 function Position(){
     this.addListener();
- 
+    // this.load();
 };
 let temp = `
 <div class="row">
-<div class="col-sm-3 col-md-2 sidebar">
-  <ul class="nav nav-sidebar">
-    <li class="active"><a href="#">陆地馆 <span class="sr-only">(current)</span></a></li>
-    <li><a class="sea" href="javascript:;">海洋馆</a></li>
-    <li><a href="#">飞禽馆</a></li>
-  </ul>
-  <ul class="nav nav-sidebar">
-    <li style="margin-top:500px;text-align:center;"><a href="">退出</a></li>
-  </ul>
-</div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h1 class="page-header">海洋生物</h1>
 
@@ -67,6 +57,43 @@ let temp = `
 </div>
 </div>
 
+
+<!-- 新添动物信息模态框 -->
+<div class="modal fade" id="addPost" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">添加动物信息</h4>
+      </div>
+      <div class="modal-body">
+        <form class="add-position-form">
+          <div class="form-group">
+            <label for="addLogo">上传照片</label>
+            <input type="file" class="form-control" name="photos" id="addPhotos">
+          </div>
+          <div class="form-group">
+            <label for="addPositionName">名称</label>
+            <input type="text" class="form-control" name="name" id="addName" placeholder="名称">
+          </div>
+          <div class="form-group">
+            <label for="addSalary">入园时间</label>
+            <input type="text" class="form-control" name="times" id="addTimes" placeholder="入园时间">
+          </div>
+          <div class="form-group">
+            <label for="addCity">吃什么</label>
+            <input type="text" class="form-control" name="eat" id="addEat" placeholder="吃什么">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button"  class="btn btn-primary btns-add-pos">添加</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 `;
 $(".container-fluid").html();
 
@@ -84,23 +111,19 @@ Position.listInfoTeplate = `
 `;
 
 $.extend(Position.prototype,{
-    addListener(){
-        $(".btns-add-pos").on("click",this.addListPost);
-        $(".sea").on("click",this.load)
-    },
-    load(){
+    loads(){
+        $(".addDom").html(temp);
         $.getJSON("/positions/list",data=>{
             const positions = data.res_body;
-            console.log(positions);
+            // console.log(positions);
             const html = ejs.render(Position.listInfoTeplate,{positions});
-            console.log(html);
-            $(".content").html(temp);
             $(".tbody").html(html);
-
-        });
-    },
-    addListPost(){
-        const formData = new FormData($(".add-position-form").get(0));
+            $(".animal-pavilion").children().removeClass("active");
+            $(".sea").parent().addClass("active");
+        })
+       // console.log($(".btns-add-pos")[0]);
+        $(".btns-add-pos").on("click",function(){
+          const formData = new FormData($(".add-position-form").get(0));
         console.log(formData);
            //使用
            $.ajax({
@@ -113,7 +136,18 @@ $.extend(Position.prototype,{
                 console.log(data);
             },
             dataType:"json"
-        })
+        });
+          
+        });
+    },
+      addListener(){
+        $(".sea").on("click",this.loads);
+        $(".btns-add-pos").on("click",this.addListPost);
+       
+    },
+    addListPost(){
+        console.log(aaa);
+        
     },
     
 });
