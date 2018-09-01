@@ -1,8 +1,19 @@
 function Position(){
     this.addListener();
-    // this.load();
+ 
 };
 let temp = `
+<div class="row">
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li class="active"><a href="#">陆地馆 <span class="sr-only">(current)</span></a></li>
+    <li><a class="sea" href="javascript:;">海洋馆</a></li>
+    <li><a href="#">飞禽馆</a></li>
+  </ul>
+  <ul class="nav nav-sidebar">
+    <li style="margin-top:500px;text-align:center;"><a href="">退出</a></li>
+  </ul>
+</div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h1 class="page-header">海洋生物</h1>
 
@@ -71,11 +82,6 @@ Position.listInfoTeplate = `
       </tr>
     <%} %>
 `;
-Position.paginationTemplate = `
-<% for (var i = 1; i <= totalPages; i++)  {%>
-    <li class="<%= currentPage == i ? 'active' : '' %>"><a href="#"><%= i %></a></li>
-<% } %>
-` 
 
 $.extend(Position.prototype,{
     addListener(){
@@ -88,36 +94,11 @@ $.extend(Position.prototype,{
             console.log(positions);
             const html = ejs.render(Position.listInfoTeplate,{positions});
             console.log(html);
-            $(".content,.addDom").html(temp);
+            $(".content").html(temp);
             $(".tbody").html(html);
 
         });
     },
-
-    
-    loadByPage(event){
-        let page;
-		if (typeof event === "number") // 直接传递页码
-			page = event;
-		else { // 获取待加载页码			
-			console.log(event.target)
-			page = $(event.target).text();
-        }
-        
-        $.getJSON("/positions/list?page="+page,data=>{
-            //待渲染的职位数据
-            const positions = data.res_body.data;
-            //EJS渲染模板
-            const html = ejs.render(Position.listInfoTemplate,{positions});
-            //显示
-            $(".list-table").html(html);
-            //显示页码数据
-            const pagination = ejs.render(Position.paginationTemplate, {totalPages: data.res_body.totalPages, currentPage : page})
-            $(".pagination").html(pagination);
-        })
-    },
-    
-
     addListPost(){
         const formData = new FormData($(".add-position-form").get(0));
         console.log(formData);

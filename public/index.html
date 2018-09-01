@@ -13,22 +13,26 @@
 
     <div class="container">
 
-        <form class="form-signin">
+        <form class="form-signin login-form">
           <h2 class="form-signin-heading">动物园管理系统</h2>
-          <label for="inputEmail" class="sr-only">用户名</label>
-          <input type="text" id="inputEmail" class="form-control" placeholder="用户名" required autofocus>
-          <label for="inputPassword" class="sr-only">密码</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+          <div class="alert alert-danger hide login-err" style="height:20px;line-height:2px;">用户名或密码错误</div>
+          <label for="loginName" class="sr-only">用户名</label>
+          <input type="text" id="loginName" name="username" class="form-control" placeholder="用户名" required autofocus>
+          <label for="loginPassword" class="sr-only">密码</label>
+          <input type="password" id="loginPassword" name="password" class="form-control" placeholder="密码" required>
           <div class="checkbox">
             <label>
               <input type="checkbox" value="remember-me"> 选我吧！满脑子都是你
             </label>
           </div>
           <div class="navbar-right" style="margin-right:10px;margin-bottom:10px;color: silver">没有账号？点击
-            <a href="javascript:void(0)" data-toggle="modal" data-target="#registerModal">注册</a>
+            <a href="#" data-toggle="modal" data-target="#registerModal">注册</a>
           </div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
         </form>
+        <div style="width:298px;height:46px;margin:0 auto">
+          <button class="btn btn-lg btn-primary btn-block btn-login" style="width:298px">登录</button>
+        </div>
+        
 
       
       </div> 
@@ -82,5 +86,6 @@
 
         <script src="/lib/Jquery/jquery-1.12.4.min.js"></script>
         <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/js/login.js"></script>
 </body>
 </html>

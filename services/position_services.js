@@ -1,4 +1,4 @@
-const PositionDao = require("../dao/model.js");
+const PositionDao = require("../dao/models.js");
 
 const PostionSerivice = {
     add(req,res,next){
