@@ -1,4 +1,4 @@
-const PostionDao = require("../dao/model.js");
+const PositionDao = require("../dao/model.js");
 
 const PostionSerivice = {
     add(req,res,next){
@@ -9,7 +9,7 @@ const PostionSerivice = {
         if(req.file)
             photos = req.file.filename;
         //保存到数据库
-        PostionDao
+        PositionDao
             .save({photos,name,times,eat})
             .then(data =>{
                 res.json({res_code:1,res_error:"",res_body:data})
@@ -23,7 +23,7 @@ const PostionSerivice = {
         //获取当前查询的页码
         let {page} = req.query;
         page = page||1;
-        const info = PositionDao.findByPage(page);
+        const info =  PositionDao.findByPage(page);
         //调用数据库查询方法
         // PositionDao
         //     .count()
@@ -41,7 +41,6 @@ const PostionSerivice = {
         //     }).catch(err =>{
         //         res.json({res_code:-1,res_error:err,res_body:{}})
         //     });
-
         info
             // .findByPage(page)
             .then(data =>{
@@ -50,8 +49,7 @@ const PostionSerivice = {
             })
             .catch(err =>{
                 res.json({res_code:-1,res_error:err,res_body:{}})
-            });
-        
+            });        
     }
 
 }

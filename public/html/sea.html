@@ -24,8 +24,7 @@
         }
     </style>
 </head>
-<body>
-    
+<body>    
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -47,73 +46,20 @@
         </div>
       </nav>
   
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-              <li class="active"><a href="#">陆地馆 <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">海洋馆</a></li>
-              <li><a href="#">飞禽馆</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-              <li style="margin-top:500px;text-align:center;"><a href="">退出</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">海洋生物</h1>
-  
-            <div class="row placeholders">
-              <div class="col-xs-6 col-sm-3 placeholder">
-                <img src="/img/11.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
-                <h4>水母</h4>
-                <span class="text-muted">Something else</span>
-              </div>
-              <div class="col-xs-6 col-sm-3 placeholder">
-                <img src="/img/12.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
-                <h4>蓝鲸</h4>
-                <span class="text-muted">Something else</span>
-              </div>
-              <div class="col-xs-6 col-sm-3 placeholder">
-                <img src="/img/13.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
-                <h4>鱼</h4>
-                <span class="text-muted">Something else</span>
-              </div>
-              <div class="col-xs-6 col-sm-3 placeholder">
-                <img src="/img/14.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" style="width:200px;height:200px;">
-                <h4>海豚</h4>
-                <span class="text-muted">Something else</span>
-              </div>
-            </div>
-  
-            <h2 class="sub-header">动物信息
-                <button  data-toggle="modal" data-target="#addPost" class="btn btn-primary btn-add-pos navbar-right" style="margin-right:55px;">新添动物信息</button>
-            </h2>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>照片</th>
-                    <th>名称</th>
-                    <th>入园时间</th>
-                    <th>吃什么</th>
-                    <th>操作</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><img src="/img/11.jpg"></td>
-                    <td>袋鼠</td>
-                    <td>20180808</td>
-                    <td>草</td>
-                    <td><a href="#">修改</a>&nbsp;<a href="#">删除</a></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+      <div class="container-fluid">  
+          <div class="row">
+              <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                  <li class="active"><a href="#">陆地馆 <span class="sr-only">(current)</span></a></li>
+                  <li><a class="sea" href="javascript:;">海洋馆</a></li>
+                  <li><a href="#">飞禽馆</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                  <li style="margin-top:500px;text-align:center;"><a href="">退出</a></li>
+                </ul>
+              </div>      
       </div>
-
+      <div class="content"></div>
 
       <!-- 新添动物信息模态框 -->
       <div class="modal fade" id="addPost" tabindex="-1">
@@ -152,10 +98,9 @@
       </div>
 
 
-
-
       <script src="/lib/Jquery/jquery-1.12.4.min.js"></script>
       <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/lib/ejs/ejs.js"></script>
       <script src="/js/position.js"></script>
 </body>
 </html>
