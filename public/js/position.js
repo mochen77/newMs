@@ -57,43 +57,6 @@ let temp = `
 </div>
 </div>
 
-
-<!-- 新添动物信息模态框 -->
-<div class="modal fade" id="addPost" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">添加动物信息</h4>
-      </div>
-      <div class="modal-body">
-        <form class="add-position-form">
-          <div class="form-group">
-            <label for="addLogo">上传照片</label>
-            <input type="file" class="form-control" name="photos" id="addPhotos">
-          </div>
-          <div class="form-group">
-            <label for="addPositionName">名称</label>
-            <input type="text" class="form-control" name="name" id="addName" placeholder="名称">
-          </div>
-          <div class="form-group">
-            <label for="addSalary">入园时间</label>
-            <input type="text" class="form-control" name="times" id="addTimes" placeholder="入园时间">
-          </div>
-          <div class="form-group">
-            <label for="addCity">吃什么</label>
-            <input type="text" class="form-control" name="eat" id="addEat" placeholder="吃什么">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button"  class="btn btn-primary btns-add-pos">添加</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 `;
 $(".container-fluid").html();
 
@@ -121,7 +84,15 @@ $.extend(Position.prototype,{
             $(".animal-pavilion").children().removeClass("active");
             $(".sea").parent().addClass("active");
         })
-       // console.log($(".btns-add-pos")[0]);
+       // console.log($(".btns-add-pos")[0]);      
+    },
+      addListener(){
+        $(".sea").on("click",this.loads);
+        $(".btns-add-pos").on("click",this.addListPost);
+       
+    },
+    addListPost(){
+        // console.log(aaa);
         $(".btns-add-pos").on("click",function(){
           const formData = new FormData($(".add-position-form").get(0));
         console.log(formData);
@@ -139,14 +110,6 @@ $.extend(Position.prototype,{
         });
           
         });
-    },
-      addListener(){
-        $(".sea").on("click",this.loads);
-        $(".btns-add-pos").on("click",this.addListPost);
-       
-    },
-    addListPost(){
-        console.log(aaa);
         
     },
     
