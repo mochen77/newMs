@@ -3,13 +3,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+//引入express-session中间件
+const session = require('express-session');
 
 
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const Terricole = require('./routes/terricole');
-var positionRouter = require("./routes/position_r");
+const captchaRouter = require('./routes/captcha');
+const positionRouter = require("./routes/position_r");
 
 
 const app = express();
@@ -22,12 +25,23 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// session配置：使用express-session中间件
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'woyouyigexiaoyuanwang',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge:45*60*1000 }
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/positions',positionRouter);
 app.use('/terricole', Terricole);
+app.use('/captcha', captchaRouter);//访问captcha目录下资源
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

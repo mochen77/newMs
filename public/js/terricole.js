@@ -104,6 +104,7 @@ Terricole.template=`<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset
 $.extend(Terricole.prototype,{
     addListener(){
         $(".terricole a").on("click",this.createDom);
+        
     },
     createDom(){
       $(".addDom").html(Terricole.template);

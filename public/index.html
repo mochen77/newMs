@@ -26,7 +26,7 @@
             </label>
           </div>
           <div class="navbar-right" style="margin-right:10px;margin-bottom:10px;color: silver">没有账号？点击
-            <a href="#" data-toggle="modal" data-target="#registerModal">注册</a>
+            <a href="#" data-toggle="modal" data-target="#registerModal" class="link-login">注册</a>
           </div>
         </form>
         <div style="width:298px;height:46px;margin:0 auto">
@@ -69,8 +69,10 @@
                   <div class="form-group input-group">
                   <label for="registerCode">验证码</label>
                         <input type="text" class="form-control" id="retisterCode" placeholder="验证码">
-                        <span class="input-group-addon code-info">信息</span>
-                  <p class="help-block code-img">这是个验证码图片</p>
+                        <div>
+                          <span class="help-block code-img" style="float: left;">这是个验证码图片</span>
+                          <span class="code-info" style="float: left;margin-top:17px;margin-left:15px"></span>
+                        </div>
                   </div>
                 </form>
         

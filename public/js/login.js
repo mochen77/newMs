@@ -13,7 +13,12 @@ $.extend(Index.prototype,{
     //点击注册按钮的的时候
     addListener(){
         $(".btn-register").on("click",this.registerHandler);
-        $(".btn-login").on("click",this.loginHandler)
+        $(".btn-login").on("click",this.loginHandler);
+        //点击登录、注册链接
+        $(".link-login").on("click",this.genCaptchaHandler);
+        //失去焦点验证
+        $("#retisterCode").on("blur",this.verifyHandler);
+
     },
     //注册按钮处理
     registerHandler(){
@@ -38,6 +43,24 @@ $.extend(Index.prototype,{
             window.location.href="/html/PM.html";
             }else{
             $(".login-err").removeClass("hide");
+            }
+        })
+    },
+    //生成验证码
+    genCaptchaHandler(){
+        $.get("/captcha/gencode",(data)=>{
+            $(".code-img").html(data);
+        },"text");
+    },
+    //校验验证码
+    verifyHandler(){
+        //输入的验证码
+        var code=$("#retisterCode").val();
+        $.getJSON("/captcha/verify",{code},(data)=>{
+            if(data.res_code===1){
+                $(".code-info").text("正确")
+            }else{
+                $(".code-info").text("错误")
             }
         })
     }
