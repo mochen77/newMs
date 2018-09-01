@@ -13,7 +13,7 @@ $.extend(Pm.prototype,{
     load(){
         if(sessionStorage.loginUser){
             let user=JSON.parse(sessionStorage.loginUser);
-            console.log(user);
+            // console.log(user);
             $(".login-success").find("a:first").text(`欢迎大佬:${user.username}`);
         }else{
             window.location.href="/index.html"

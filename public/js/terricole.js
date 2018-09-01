@@ -36,9 +36,10 @@ Terricole.template=`<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset
     <button  data-toggle="modal" data-target="#addPosModal" class="btn btn-primary btn-add-pos navbar-right" style="margin-right:55px;">新添动物信息</button>
 </h2>
 <div class="table-responsive">
-  <table class="table table-striped">
+  <table class="table table-striped terricoles-list-table">
     <thead>
       <tr>
+        <th>序号</th>
         <th>照片</th>
         <th>名称</th>
         <th>入园时间</th>
@@ -56,6 +57,8 @@ Terricole.template=`<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset
       </tr>
     </tbody>
   </table>
+
+  <div class="pagination"></div>
 </div>
 </div>
 
@@ -106,6 +109,7 @@ $.extend(Terricole.prototype,{
       $(".addDom").html(Terricole.template);
       $(".animal-pavilion").children().removeClass("active");
       $(".terricole").addClass("active");
+      new AddTerricole();
     }
 });
 
